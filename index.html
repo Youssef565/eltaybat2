@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>عطارة الطيبات | روابط التواصل والدفع</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Cairo & Tajawal -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        gold: {
+                            100: '#FDF7E7',
+                            300: '#F3E0A5',
+                            400: '#E5C158',
+                            500: '#D4AF37',
+                            600: '#C59B27',
+                            700: '#A37C1E',
+                            900: '#5C440D',
+                        },
+                        emerald: {
+                            850: '#0F261A',
+                            900: '#0B1D13',
+                            950: '#05110B',
+                        }
+                    },
+                    fontFamily: {
+                        cairo: ['Cairo', 'sans-serif'],
+                        tajawal: ['Tajawal', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: 'Cairo', sans-serif;
+            background: radial-gradient(circle at 50% 15%, #163825 0%, #091B11 55%, #040D08 100%);
+            min-height: 100vh;
+            color: #ffffff;
+        }
+
+        /* نقش خلفي مستوحى من زخارف العطارة والتراث */
+        .apothecary-pattern {
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg stroke='%23D4AF37' stroke-width='0.6' stroke-opacity='0.14'%3E%3Cpath d='M30 0L60 30L30 60L0 30z'/%3E%3Ccircle cx='30' cy='30' r='12'/%3E%3Cpath d='M30 10v40M10 30h40' stroke-opacity='0.07'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        /* حركة العناصر العائمة في الخلفية (أعشاب وتوابل) */
+        @keyframes floatSpice {
+            0%, 100% {
+                transform: translateY(0px) rotate(0deg) scale(1);
+            }
+            50% {
+                transform: translateY(-22px) rotate(12deg) scale(1.06);
+            }
+        }
+
+        .floating-spice {
+            position: absolute;
+            pointer-events: none;
+            user-select: none;
+            filter: drop-shadow(0 0 12px rgba(212, 175, 55, 0.25));
+            animation: floatSpice 7s ease-in-out infinite;
+        }
+
+        /* حركة طفو هادئة للشعار */
+        @keyframes logoFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-6px); }
+        }
+        .animate-logo {
+            animation: logoFloat 4s ease-in-out infinite;
+        }
+
+        /* توهج ذهبي نابض حول الشعار */
+        @keyframes glowRing {
+            0%, 100% { opacity: 0.65; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.04); }
+        }
+        .animate-glow {
+            animation: glowRing 3.5s ease-in-out infinite;
+        }
+
+        /* حركة ظهور العناصر بالتتابع عند تحميل الصفحة */
+        @keyframes slideUpFade {
+            from {
+                opacity: 0;
+                transform: translateY(22px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .reveal-item {
+            opacity: 0;
+            animation: slideUpFade 0.65s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+        }
+
+        .gold-text-gradient {
+            background: linear-gradient(135deg, #FFF3C4 0%, #E5C158 45%, #B88E23 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* تصميم البطاقات الزجاجية مع تأثير لمعة عند التمرير */
+        .card-glass {
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(145deg, rgba(20, 48, 32, 0.75) 0%, rgba(10, 26, 17, 0.85) 100%);
+            backdrop-filter: blur(14px);
+            border: 1px solid rgba(212, 175, 55, 0.28);
+            transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .card-glass::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: -100%;
+            width: 60%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 240, 184, 0.12), transparent);
+            transform: skewX(-25deg);
+            transition: right 0.7s ease;
+        }
+
+        .card-glass:hover::before {
+            right: 150%;
+        }
+
+        .card-glass:hover {
+            border-color: rgba(212, 175, 55, 0.85);
+            transform: translateY(-4px) scale(1.01);
+            box-shadow: 0 12px 28px -6px rgba(212, 175, 55, 0.25);
+        }
+
+        .btn-gold-action {
+            background: linear-gradient(135deg, #E5C158 0%, #B88E23 100%);
+            color: #06120B;
+            transition: all 0.25s ease;
+        }
+
+        .btn-gold-action:hover {
+            background: linear-gradient(135deg, #FFF0B8 0%, #D4AF37 100%);
+            box-shadow: 0 0 18px rgba(212, 175, 55, 0.5);
+        }
+
+        /* نبض خفيف لأزرار الواتساب */
+        @keyframes subtlePulse {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.2); }
+            50% { box-shadow: 0 0 18px 2px rgba(212, 175, 55, 0.25); }
+        }
+        .animate-pulse-subtle {
+            animation: subtlePulse 3.5s infinite ease-in-out;
+        }
+    </style>
+</head>
+<body class="flex flex-col items-center justify-between min-h-screen p-4 sm:p-6 relative overflow-x-hidden">
+
+    <!-- خلفية النقوش التراثية -->
+    <div class="fixed inset-0 apothecary-pattern pointer-events-none z-0"></div>
+
+    <!-- هالة إضاءة ذهبية ناعمة في أعلى الصفحة -->
+    <div class="fixed -top-24 left-1/2 -translate-x-1/2 w-[500px] h-[300px] bg-gold-500/15 rounded-full blur-[100px] pointer-events-none z-0"></div>
+
+    <!-- عناصر عطارة وأعشاب عائمة في الخلفية -->
+    <div class="fixed inset-0 overflow-hidden pointer-events-none z-0">
+        <!-- ورقة عشب 1 -->
+        <div class="floating-spice top-[8%] right-[8%] text-emerald-400/20 text-4xl" style="animation-delay: 0s;">
+            <i class="fa-solid fa-leaf"></i>
+        </div>
+        <!-- هاون ومدقة عطارة -->
+        <div class="floating-spice top-[22%] left-[7%] text-gold-500/20 text-4xl" style="animation-delay: 1.5s; animation-duration: 8s;">
+            <i class="fa-solid fa-mortar-pestle"></i>
+        </div>
+        <!-- غصن زيتون/أعشاب -->
+        <div class="floating-spice top-[48%] right-[5%] text-gold-400/15 text-5xl" style="animation-delay: 2.5s; animation-duration: 9s;">
+            <i class="fa-solid fa-seedling"></i>
+        </div>
+        <!-- نجمة يانسون / زخرفة -->
+        <div class="floating-spice top-[65%] left-[8%] text-gold-500/20 text-3xl" style="animation-delay: 1s; animation-duration: 6.5s;">
+            <i class="fa-solid fa-spa"></i>
+        </div>
+        <!-- ورقة عشب 2 -->
+        <div class="floating-spice bottom-[12%] right-[12%] text-emerald-400/15 text-4xl" style="animation-delay: 3s; animation-duration: 8.5s;">
+            <i class="fa-brands fa-pagelines"></i>
+        </div>
+    </div>
+
+    <!-- Main Container -->
+    <main class="w-full max-w-md mx-auto flex flex-col items-center z-10 my-4">
+
+        <!-- Logo Container with Luxury Frame -->
+        <div class="relative mb-4 group animate-logo reveal-item" style="animation-delay: 0.05s;">
+            <div class="absolute -inset-1.5 rounded-full bg-gradient-to-r from-gold-500 via-yellow-200 to-gold-700 blur-md animate-glow"></div>
+            <div class="relative w-36 h-36 rounded-full p-1 bg-emerald-950 flex items-center justify-center overflow-hidden border-2 border-gold-500 shadow-2xl">
+                <!-- Store Logo -->
+                <img src="100.jpg" alt="عطارة الطيبات" class="w-full h-full object-cover rounded-full transition-transform duration-500 group-hover:scale-105" onerror="this.onerror=null; this.src='https://placehold.co/200x200/0d2015/D4AF37?text=عطارة+الطيبات';">
+            </div>
+        </div>
+
+        <!-- Store Name & Tagline -->
+        <div class="text-center mb-6 reveal-item" style="animation-delay: 0.15s;">
+            <h1 class="text-3xl sm:text-4xl font-black tracking-wide gold-text-gradient mb-1.5 drop-shadow">
+                عطارة الطيبات
+            </h1>
+            <p class="text-xs sm:text-sm text-gold-300 font-tajawal opacity-95 flex items-center justify-center gap-1.5">
+                <span>🌿</span> جودة، أصالة، ونقاء من الطبيعة <span>✨</span>
+            </p>
+        </div>
+
+        <!-- Social Media Links Section -->
+        <div class="w-full space-y-3.5 mb-8">
+
+            <!-- WhatsApp Direct Button -->
+            <a href="https://wa.me/201043576064" target="_blank" rel="noopener noreferrer" 
+               class="card-glass w-full p-3.5 rounded-2xl flex items-center justify-between group cursor-pointer animate-pulse-subtle reveal-item" style="animation-delay: 0.25s;">
+                <div class="flex items-center gap-3.5">
+                    <div class="w-11 h-11 rounded-xl bg-green-600/20 border border-green-500/40 flex items-center justify-center text-green-400 group-hover:bg-green-600 group-hover:text-white group-hover:scale-110 transition-all duration-300">
+                        <i class="fa-brands fa-whatsapp text-2xl"></i>
+                    </div>
+                    <div class="text-right">
+                        <h2 class="text-sm font-bold text-white group-hover:text-gold-300 transition-colors">واتساب (طلب واستفسار)</h2>
+                        <p class="text-xs text-gray-300/80">تواصل مباشر لطلب المنتجات</p>
+                    </div>
+                </div>
+                <i class="fa-solid fa-chevron-left text-xs text-gold-500 group-hover:-translate-x-1.5 transition-transform"></i>
+            </a>
+
+            <!-- WhatsApp Group Button (جديد) -->
+            <a href="https://chat.whatsapp.com/IEvVuSn4Uim52eBqo9eTa1" target="_blank" rel="noopener noreferrer" 
+               class="card-glass w-full p-3.5 rounded-2xl flex items-center justify-between group cursor-pointer reveal-item border-emerald-400/40" style="animation-delay: 0.35s;">
+                <div class="flex items-center gap-3.5">
+                    <div class="w-11 h-11 rounded-xl bg-teal-500/20 border border-teal-400/40 flex items-center justify-center text-teal-300 group-hover:bg-teal-600 group-hover:text-white group-hover:scale-110 transition-all duration-300">
+                        <i class="fa-solid fa-users text-lg"></i>
+                    </div>
+                    <div class="text-right">
+                        <div class="flex items-center gap-2">
+                            <h2 class="text-sm font-bold text-white group-hover:text-gold-300 transition-colors">جروب الواتساب الرسمي</h2>
+                            <span class="text-[10px] bg-green-500/20 text-green-300 px-2 py-0.5 rounded-full border border-green-500/30 font-semibold">انضم إلينا</span>
+                        </div>
+                        <p class="text-xs text-gray-300/80">عروض حصرية وتشكيلة العطارة اليومية</p>
+                    </div>
+                </div>
+                <i class="fa-solid fa-chevron-left text-xs text-gold-500 group-hover:-translate-x-1.5 transition-transform"></i>
+            </a>
+
+            <!-- Facebook Button -->
+            <a href="https://www.facebook.com/profile.php?id=61594700728911" target="_blank" rel="noopener noreferrer" 
+               class="card-glass w-full p-3.5 rounded-2xl flex items-center justify-between group cursor-pointer reveal-item" style="animation-delay: 0.45s;">
+                <div class="flex items-center gap-3.5">
+                    <div class="w-11 h-11 rounded-xl bg-blue-600/20 border border-blue-500/40 flex items-center justify-center text-blue-400 group-hover:bg-blue-600 group-hover:text-white group-hover:scale-110 transition-all duration-300">
+                        <i class="fa-brands fa-facebook-f text-lg"></i>
+                    </div>
+                    <div class="text-right">
+                        <h2 class="text-sm font-bold text-white group-hover:text-gold-300 transition-colors">صفحة الفيسبوك</h2>
+                        <p class="text-xs text-gray-300/80">تابع أحدث العروض والمنتجات</p>
+                    </div>
+                </div>
+                <i class="fa-solid fa-chevron-left text-xs text-gold-500 group-hover:-translate-x-1.5 transition-transform"></i>
+            </a>
+
+            <!-- Instagram Button -->
+            <a href="https://www.instagram.com/eltaybatelatar/" target="_blank" rel="noopener noreferrer" 
+               class="card-glass w-full p-3.5 rounded-2xl flex items-center justify-between group cursor-pointer reveal-item" style="animation-delay: 0.55s;">
+                <div class="flex items-center gap-3.5">
+                    <div class="w-11 h-11 rounded-xl bg-pink-600/20 border border-pink-500/40 flex items-center justify-center text-pink-400 group-hover:bg-gradient-to-tr group-hover:from-amber-500 group-hover:via-pink-600 group-hover:to-purple-600 group-hover:text-white group-hover:scale-110 transition-all duration-300">
+                        <i class="fa-brands fa-instagram text-xl"></i>
+                    </div>
+                    <div class="text-right">
+                        <h2 class="text-sm font-bold text-white group-hover:text-gold-300 transition-colors">إنستغرام</h2>
+                        <p class="text-xs text-gray-300/80">صور وفيديوهات الوصفات والمنتجات</p>
+                    </div>
+                </div>
+                <i class="fa-solid fa-chevron-left text-xs text-gold-500 group-hover:-translate-x-1.5 transition-transform"></i>
+            </a>
+
+            <!-- TikTok Button -->
+            <a href="https://www.tiktok.com/@user5457025601790?is_from_webapp=1&sender_device=pc" target="_blank" rel="noopener noreferrer" 
+               class="card-glass w-full p-3.5 rounded-2xl flex items-center justify-between group cursor-pointer reveal-item" style="animation-delay: 0.65s;">
+                <div class="flex items-center gap-3.5">
+                    <div class="w-11 h-11 rounded-xl bg-gray-700/30 border border-gray-400/40 flex items-center justify-center text-white group-hover:bg-black group-hover:scale-110 transition-all duration-300">
+                        <i class="fa-brands fa-tiktok text-lg"></i>
+                    </div>
+                    <div class="text-right">
+                        <h2 class="text-sm font-bold text-white group-hover:text-gold-300 transition-colors">تيك توك</h2>
+                        <p class="text-xs text-gray-300/80">نصائح العطارة والأعشاب الطبيعية</p>
+                    </div>
+                </div>
+                <i class="fa-solid fa-chevron-left text-xs text-gold-500 group-hover:-translate-x-1.5 transition-transform"></i>
+            </a>
+
+            <!-- Direct Call Button -->
+            <a href="tel:01043576064" 
+               class="card-glass w-full p-3.5 rounded-2xl flex items-center justify-between group cursor-pointer reveal-item" style="animation-delay: 0.75s;">
+                <div class="flex items-center gap-3.5">
+                    <div class="w-11 h-11 rounded-xl bg-amber-600/20 border border-amber-500/40 flex items-center justify-center text-amber-400 group-hover:bg-amber-600 group-hover:text-white group-hover:scale-110 transition-all duration-300">
+                        <i class="fa-solid fa-phone text-lg"></i>
+                    </div>
+                    <div class="text-right">
+                        <h2 class="text-sm font-bold text-white group-hover:text-gold-300 transition-colors">اتصل بنا مباشرة</h2>
+                        <p class="text-xs text-gray-300/80 font-mono" dir="ltr">01043576064</p>
+                    </div>
+                </div>
+                <i class="fa-solid fa-chevron-left text-xs text-gold-500 group-hover:-translate-x-1.5 transition-transform"></i>
+            </a>
+
+        </div>
+
+        <!-- Payment Methods Box -->
+        <div class="w-full card-glass p-5 rounded-3xl relative overflow-hidden mb-6 border border-gold-500/40 reveal-item" style="animation-delay: 0.85s;">
+            <div class="flex items-center justify-between mb-4 pb-3 border-b border-gold-500/20">
+                <div class="flex items-center gap-2">
+                    <i class="fa-solid fa-wallet text-gold-500 text-lg"></i>
+                    <h3 class="font-bold text-base text-gold-300">طرق الدفع والتحويل</h3>
+                </div>
+                <span class="text-[10px] bg-gold-500/20 text-gold-300 px-2.5 py-0.5 rounded-full border border-gold-500/30">سريع وآمن</span>
+            </div>
+
+            <!-- Vodafone Cash / InstaPay Account Details -->
+            <div class="space-y-3">
+                <div class="bg-emerald-950/90 p-3.5 rounded-2xl border border-gold-500/25 flex items-center justify-between">
+                    <div>
+                        <div class="flex items-center gap-2 mb-1">
+                            <span class="inline-block w-2 h-2 rounded-full bg-red-500 animate-ping"></span>
+                            <span class="text-xs text-gray-300 font-semibold">فودافون كاش / إنستا باي</span>
+                        </div>
+                        <div id="accountNumber" class="text-lg font-mono font-bold text-gold-400 tracking-wider" dir="ltr">01043576064</div>
+                    </div>
+
+                    <!-- Copy Button -->
+                    <button onclick="copyToClipboard('01043576064')" 
+                            class="btn-gold-action px-3.5 py-2 rounded-xl text-xs font-bold flex items-center gap-1.5 shadow-md active:scale-95 transition-transform cursor-pointer">
+                        <i class="fa-regular fa-copy"></i>
+                        <span>نسخ الرقم</span>
+                    </button>
+                </div>
+
+                <p class="text-[11px] text-gray-300/80 text-center leading-relaxed">
+                    💡 يرجى إرسال صورة إيصال التحويل على الواتساب لتأكيد طلبك مباشرة.
+                </p>
+            </div>
+        </div>
+
+        <!-- Share Page Button -->
+        <button onclick="sharePage()" class="reveal-item text-xs text-gold-300/90 hover:text-gold-300 bg-emerald-950/60 hover:bg-emerald-900/80 flex items-center gap-2 py-2.5 px-5 rounded-full border border-gold-500/30 hover:border-gold-500/60 transition-all cursor-pointer" style="animation-delay: 0.95s;">
+            <i class="fa-solid fa-share-nodes"></i>
+            <span>مشاركة الصفحة</span>
+        </button>
+
+    </main>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="fixed bottom-6 bg-gold-500 text-emerald-950 font-bold px-5 py-2.5 rounded-2xl shadow-2xl flex items-center gap-2 opacity-0 pointer-events-none transition-all duration-300 translate-y-4 z-50">
+        <i class="fa-solid fa-circle-check"></i>
+        <span id="toastMsg">تم نسخ الرقم بنجاح!</span>
+    </div>
+
+    <!-- Footer -->
+    <footer class="w-full text-center py-4 text-[11px] text-gray-400 border-t border-gold-500/15 z-10">
+        <p>© 2026 جميع الحقوق محفوظة - <span class="text-gold-500 font-bold">عطارة الطيبات</span></p>
+    </footer>
+
+    <!-- JavaScript Functionality -->
+    <script>
+        function copyToClipboard(text) {
+            if (navigator.clipboard && window.isSecureContext) {
+                navigator.clipboard.writeText(text).then(() => {
+                    showToast("تم نسخ الرقم بنجاح!");
+                }).catch(() => fallbackCopy(text));
+            } else {
+                fallbackCopy(text);
+            }
+        }
+
+        function fallbackCopy(text) {
+            const dummy = document.createElement("input");
+            document.body.appendChild(dummy);
+            dummy.value = text;
+            dummy.select();
+            try {
+                document.execCommand("copy");
+                showToast("تم نسخ الرقم بنجاح!");
+            } catch (err) {
+                showToast("تعذر النسخ تلقائياً، يمكنك نسخ الرقم يدويًا");
+            }
+            document.body.removeChild(dummy);
+        }
+
+        function showToast(message) {
+            const toast = document.getElementById("toast");
+            const toastMsg = document.getElementById("toastMsg");
+            toastMsg.textContent = message;
+            
+            toast.classList.remove("opacity-0", "pointer-events-none", "translate-y-4");
+            toast.classList.add("opacity-100", "translate-y-0");
+            
+            setTimeout(() => {
+                toast.classList.remove("opacity-100", "translate-y-0");
+                toast.classList.add("opacity-0", "pointer-events-none", "translate-y-4");
+            }, 2500);
+        }
+
+        function sharePage() {
+            if (navigator.share) {
+                navigator.share({
+                    title: 'عطارة الطيبات',
+                    text: 'تواصل معنا واكتشف أجود أنواع العطارة والمنتجات الطبيعية من عطارة الطيبات',
+                    url: window.location.href,
+                }).catch(() => {});
+            } else {
+                copyToClipboard(window.location.href);
+                showToast("تم نسخ رابط الصفحة!");
+            }
+        }
+    </script>
+</body>
+</html>
